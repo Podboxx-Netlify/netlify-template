@@ -1,5 +1,5 @@
 [build]
-    command = "CI= npm run export"
+    command = "CI= npm run build"
     publish = "out"
 
 [[plugins]]
