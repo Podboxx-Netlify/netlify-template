@@ -12,6 +12,7 @@ import CardMedia from '@material-ui/core/CardMedia'
 import Hidden from '@material-ui/core/Hidden'
 import Link from '@material-ui/core/Link'
 import Container from '@material-ui/core/Container'
+import Image from 'next/image'
 
 const useStyles = makeStyles(theme => ({
     toolbar: {
@@ -94,14 +95,6 @@ const Blog = () => {
                 <main>
                     {/* Main featured post */}
                     <Paper className={classes.mainFeaturedPost}>
-                        {/* Increase the priority of the hero background image */}
-                        {
-                            <img
-                                style={{display: 'none'}}
-                                src="https://source.unsplash.com/user/erondu"
-                                alt="background"
-                            />
-                        }
                         <div className={classes.overlay}/>
                         <Grid container>
                             <Grid item md={6}>
