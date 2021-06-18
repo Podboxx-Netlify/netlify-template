@@ -1,5 +1,6 @@
 import {GetServerSideProps} from 'next'
 import React from "react";
+import Layout from "../../components/layout/layout";
 
 interface Data {
     name: string
@@ -19,15 +20,15 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
 const Post: React.FC<{ data: Data }> = ({data}) => {
     return (
-        <>
-            {/*<Link href="../">Go Back</Link>*/}
+        <Layout>
+            <a href="../">Go Back</a>
             <h1 style={{textAlign: 'center'}}>Fruit Name: {data.name}</h1>
             <br/>
             <h1 style={{textAlign: 'center'}}>Nutrition</h1>
             <>{Object.keys(data.nutritions).map((value: string, key: number) =>
                 <p key={key} style={{textAlign: 'center'}}>{value}: {data.nutritions[value]}</p>
             )}</>
-        </>
+        </Layout>
     )
 }
 

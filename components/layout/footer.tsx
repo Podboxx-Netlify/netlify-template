@@ -31,7 +31,7 @@ export default function Footer() {
         //         </li>
         //     </ul>
         // </footer>
-        <footer className="site-footer mt-12">
+        <footer className="site-footer mt-12 object-none object-bottom">
             <p>&copy; {new Date().getFullYear()} <a
                  // INSERT TITLE HERE
                 className="-primary">TommyBlog</a> &bull; Powered by &nbsp;
