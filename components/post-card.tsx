@@ -19,7 +19,7 @@ const PostCard: React.FC<{ data: Post }> = ({data}) => {
                     <h1 className="text-lg sm:text-xl font-semibold text-gray-300">
                         {data.title}
                     </h1>
-                    <p className="text-gray-400 text-sm sm:text-base line-clamp-3 overflow-hidden overflow-ellipsis whitespace-normal max-h-24">
+                    <p className="text-gray-400 text-sm sm:text-base line-clamp-3 overflow-hidden overflow-ellipsis whitespace-normal max-h-24 prose">
                          Hello this is my podcast&apos;s description, I hope you enjoy it! Hello this is my podcast&apos;s description, I hope you enjoy it!
                     </p>
                     <div className="flex gap-5 mt-auto">

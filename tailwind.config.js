@@ -19,16 +19,16 @@ module.exports = {
                 '.container': {
                     maxWidth: '100%',
                     '@screen sm': {
-                        maxWidth: '576px',
+                        maxWidth: '515px',
                     },
                     '@screen md': {
-                        maxWidth: '690px',
+                        maxWidth: '625px',
                     },
                     '@screen lg': {
-                        maxWidth: '1152px',
+                        maxWidth: '1120px',
                     },
                     '@screen xl': {
-                        maxWidth: '1260px',
+                        maxWidth: '1200px',
                     },
                 }
             })
