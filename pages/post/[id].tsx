@@ -1,6 +1,5 @@
 import {GetServerSideProps} from 'next'
 import React from "react";
-import {Link} from "@material-ui/core";
 
 interface Data {
     name: string
@@ -21,7 +20,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 const Post: React.FC<{ data: Data }> = ({data}) => {
     return (
         <>
-            <Link href="../">Go Back</Link>
+            {/*<Link href="../">Go Back</Link>*/}
             <h1 style={{textAlign: 'center'}}>Fruit Name: {data.name}</h1>
             <br/>
             <h1 style={{textAlign: 'center'}}>Nutrition</h1>
