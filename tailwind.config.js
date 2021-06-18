@@ -5,7 +5,7 @@ module.exports = {
     extend: {},
     container: {
       center: true,
-      padding: '2rem'
+      // padding: '2rem'
     },
   },
   variants: {
@@ -13,5 +13,24 @@ module.exports = {
   },
   plugins: [
     require('@tailwindcss/typography'),
+    function ({ addComponents }) {
+      addComponents({
+        '.container': {
+          maxWidth: '100%',
+          '@screen sm': {
+            maxWidth: '576px',
+          },
+          '@screen md': {
+            maxWidth: '690px',
+          },
+          '@screen lg': {
+            maxWidth: '1152px',
+          },
+          '@screen xl': {
+            maxWidth: '1260px',
+          },
+        }
+      })
+    }
   ],
 }
