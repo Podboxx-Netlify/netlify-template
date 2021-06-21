@@ -51,7 +51,7 @@ const Post: React.FC<{ data: Data }> = ({data}) => {
                         </p>
                     </article>
                     <br/>
-                    <iframe className='sm:m-4 sm:rounded-2xl' height='235' src="https://player.podboxx.com/33807"
+                    <iframe className='sm:m-4 sm:rounded-2xl h-72 sm:h-player ' height='235' src="https://player.podboxx.com/33807"
                             allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
                             allowFullScreen/>
                 </div>

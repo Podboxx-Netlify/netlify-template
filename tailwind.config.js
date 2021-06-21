@@ -3,6 +3,9 @@ module.exports = {
     darkMode: 'media', // or 'media' or 'class'
     theme: {
         extend: {
+            spacing: {
+                'player': '235px',
+            },
             typography: (theme) => ({
                 DEFAULT: {
                     css: {

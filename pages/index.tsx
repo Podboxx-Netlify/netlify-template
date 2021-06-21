@@ -25,7 +25,6 @@ const Blog: React.FC<{ data: Data[] }> = ({data}) => {
     console.log(data)
     return (
         <>
-
             {/*<VerticalAd/>*/}
             <Layout>
                 <div className="grid grid-cols-1 gap-5 xl:grid-cols-2 justify-items-center justify-center">
