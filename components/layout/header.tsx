@@ -16,61 +16,61 @@ export default function Header() {
                         href="https://github.com/oddstronaut/next-starter-tailwind"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="font-bold"
+                        className="font-bold hover:text-red-500"
                     >
                         Facebook
                     </a>
-                    <a> | </a>
+                    <a className='select-none'> | </a>
                     <a
                         href="https://github.com/oddstronaut/next-starter-tailwind"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="font-bold"
+                        className="font-bold hover:text-red-500"
                     >
                         Twitter
                     </a>
-                    <a> | </a>
+                    <a className='select-none'> | </a>
                     <a
                         href="https://github.com/oddstronaut/next-starter-tailwind"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="font-bold"
+                        className="font-bold hover:text-red-500"
                     >
                         Youtube
                     </a>
-                    <a> | </a>
+                    <a className='select-none'> | </a>
                     <a
                         href="https://github.com/oddstronaut/next-starter-tailwind"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="font-bold"
+                        className="font-bold hover:text-red-500"
                     >
                         Google
                     </a>
-                    <a> | </a>
+                    <a className='select-none'> | </a>
                     <a
                         href="https://github.com/oddstronaut/next-starter-tailwind"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="font-bold"
+                        className="font-bold hover:text-red-500"
                     >
                         Itunes
                     </a>
-                    <a> | </a>
+                    <a className='select-none'> | </a>
                     <a
                         href="https://github.com/oddstronaut/next-starter-tailwind"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="font-bold"
+                        className="font-bold hover:text-red-500"
                     >
                         Spotify
                     </a>
-                    <a> | </a>
+                    <a className='select-none'> | </a>
                     <a
                         href="https://github.com/oddstronaut/next-starter-tailwind"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="font-bold"
+                        className="font-bold hover:text-red-500"
                     >
                         Linkedin
                     </a>

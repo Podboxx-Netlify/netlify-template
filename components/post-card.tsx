@@ -24,9 +24,9 @@ const PostCard: React.FC<{ data: Post }> = ({data}) => {
                     </p>
                     <div className="flex gap-5 mt-auto">
                         <button
-                            className='ml-auto flex items-center gap-3 sm:text-lg border border-red-900 px-3 py-1 rounded-full hover:bg-gray-200 transition-colors focus:bg-gray-100 focus:outline-none focus-visible:border-gray-500'
+                            className='ml-auto flex items-center gap-3 sm:text-lg border-2 border-red-900 px-3 py-1 rounded-full hover:bg-gray-300 transition-colors focus:bg-gray-300 focus:outline-none focus-visible:border-gray-500'
                         >
-                            <a href={`/post/${encodeURIComponent(data.title)}`} className='text-gray-300'>View episode</a>
+                            <a href={`/post/${encodeURIComponent(data.title)}`} className='text-gray-300 hover:text-red-500'>View episode</a>
                         </button>
                     </div>
                 </div>

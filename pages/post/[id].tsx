@@ -26,7 +26,7 @@ const Post: React.FC<{ data: Data }> = ({data}) => {
                 <div
                     className="w-full sm:rounded-2xl shadow-lg flex flex-col sm:flex-col select-none gap-4"
                     style={{backgroundColor: '#292d35'}}>
-                    <a href="../" className='p-5 font-bold text-gray-300 hover:text-red-500'>Go Back</a>
+                    <button className="text-left p-5 select-none cursor-default w-28"><a href="../" className='font-bold text-gray-300 hover:text-red-500'>Go Back</a></button>
                     {/*<h1 className='text-center font-bold font text-3xl text-gray-300'>Fruit Name: {data.name}</h1>*/}
                     {/*<br/>*/}
                     {/*<h1 style={{textAlign: 'center'}}>Nutrition</h1>*/}
