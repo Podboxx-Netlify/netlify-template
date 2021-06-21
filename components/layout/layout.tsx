@@ -1,5 +1,7 @@
 import Header from './header'
 import Footer from './footer'
+import VerticalAd from "../vertical-ad";
+import React from "react";
 
 export default function Layout({...props}) {
     return (
@@ -7,7 +9,9 @@ export default function Layout({...props}) {
             <Header/>
             <div className='container mx-auto flex-grow'>
                 {props.children}
+
             </div>
+            <VerticalAd/>
             <Footer/>
         </div>
     );

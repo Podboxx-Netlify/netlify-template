@@ -2,7 +2,19 @@ module.exports = {
     purge: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
     darkMode: 'media', // or 'media' or 'class'
     theme: {
-        extend: {},
+        extend: {
+            typography: (theme) => ({
+                DEFAULT: {
+                    css: {
+                        color: theme('colors.gray.300'),
+                        h1: {
+                            color: theme('colors.gray.300'),
+                            // color: '#d4d4d4'
+                        },
+                    },
+                },
+            }),
+        },
         container: {
             center: true,
             // padding: '2rem'
