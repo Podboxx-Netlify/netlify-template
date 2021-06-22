@@ -1,14 +1,26 @@
 import '../styles/globals.scss'
-
+import NProgress from 'nprogress'
+import Router from 'next/router'
+import Layout from "../components/layout/layout";
 // function MyApp({Component, pageProps}) {
 //     return (
 //             <Component {...pageProps} />
 //     )
 // }
 
+Router.events.on('routeChangeStart', (url) => {
+    console.log(`Loading: ${url}`)
+    NProgress.start()
+})
+Router.events.on('routeChangeComplete', () => NProgress.done())
+Router.events.on('routeChangeError', () => NProgress.done())
 
 function MyApp({ Component, pageProps, websiteData }) {
-    return <Component {...pageProps} website={websiteData} />
+    return (
+        <Layout website={websiteData}>
+            <Component {...pageProps} website={websiteData} />
+        </Layout>
+    )
 }
 
 MyApp.getInitialProps = async (Component, ctx) => {

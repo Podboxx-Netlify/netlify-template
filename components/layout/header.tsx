@@ -1,80 +1,104 @@
+import React from "react";
 import Link from 'next/link'
 import DarkMode from "../dark-mode";
-import React from "react";
 
 export default function Header({...props}) {
-    // console.log(props)
-    // console.log(props.data.title)
+
     return (
         <header className="bg-hero mb-12">
             <ul className="flex items-center justify-center lg:container px-4 py-1 mx-auto text-sm text-white md:px-6">
                 <li className="site-header text-white text-5xl text-center justify-self-center">
                     <Link href="/">
-                        {/*oi*/}
                         <a>{props.data.title}</a>
                     </Link>
                 </li>
             </ul>
-            <ul className="flex items-center text-center justify-center lg:container px-5 my-auto text-md text-white md:px-6 flex-wrap">
+            <ul className="flex items-center text-center justify-center lg:container px-5 my-auto text-md text-white md:px-6 flex-wrap ">
                 <li className='mb-5'>
-                    <a
-                        href="https://github.com/oddstronaut/next-starter-tailwind"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="font-bold hover:text-red-500"
-                    >
-                        Facebook
-                    </a>
-                    <a className='select-none'> | </a>
-                    <a
-                        href="https://github.com/oddstronaut/next-starter-tailwind"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="font-bold hover:text-red-500"
-                    >
-                        Twitter
-                    </a>
-                    <a className='select-none'> | </a>
-                    <a
-                        href="https://github.com/oddstronaut/next-starter-tailwind"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="font-bold hover:text-red-500"
-                    >
-                        Youtube
-                    </a>
-                    <a className='select-none'> | </a>
-                    <a
-                        href="https://github.com/oddstronaut/next-starter-tailwind"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="font-bold hover:text-red-500"
-                    >
-                        Google
-                    </a>
-                    <a className='select-none'> | </a>
-                    <a
-                        href="https://github.com/oddstronaut/next-starter-tailwind"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="font-bold hover:text-red-500"
-                    >
-                        Itunes
-                    </a>
-                    <a className='select-none'> | </a>
-                    <a
-                        href="https://github.com/oddstronaut/next-starter-tailwind"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="font-bold hover:text-red-500"
-                    >
-                        Spotify
-                    </a>
-                    {/*{props.data.linkedin_url !== null &&*/}
+                    {props.data.fb_url !== null &&
                     <>
-                        <a className='select-none'> | </a>
+                        <a className='select-none first:hidden last:hidden'> | </a>
                         <a
-                            href="https://github.com/oddstronaut/next-starter-tailwind"
+                            href={props.data.fb_url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="font-bold hover:text-red-500"
+                        >
+                            Facebook
+                        </a>
+                    </>
+                    }
+                    {props.data.twitter_url !== null &&
+                    <>
+                        <a className='select-none first:hidden last:hidden'> | </a>
+                        <a
+                            href={props.data.twitter_url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="font-bold hover:text-red-500"
+                        >
+                            Twitter
+                        </a>
+                    </>
+                    }
+                    {props.data.youtube_url !== null &&
+                    <>
+                        <a className='select-none first:hidden last:hidden'> | </a>
+                        <a
+                            href={props.data.youtube_url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="font-bold hover:text-red-500"
+                        >
+                            Youtube
+                        </a>
+                    </>
+                    }
+                    {props.data.google_url !== null &&
+                    <>
+                        <a className='select-none first:hidden last:hidden'> | </a>
+                        <a
+                            href={props.data.google_url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="font-bold hover:text-red-500"
+                        >
+                            Google
+                        </a>
+                    </>
+                    }
+                    {props.data.apple_url !== null &&
+                    <>
+                        <a className='select-none first:hidden last:hidden'> | </a>
+                        <a
+                            href={props.data.apple_url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="font-bold hover:text-red-500"
+                        >
+                            Itunes
+                        </a>
+                    </>
+                    }
+                    {props.data.spotify_url !== null &&
+                    <>
+                        <a className='select-none first:hidden last:hidden'> | </a>
+                        <a
+                            href={props.data.spotify_url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="font-bold hover:text-red-500"
+                        >
+                            Spotify
+                        </a>
+                    </>
+                    }
+                    <a className='select-none last:hidden'> | </a>
+                    {props.data.linkedin_url !== null &&
+                    <>
+                        <a className='select-none first:hidden last:hidden'> | </a>
+                        <a
+                            href={props.data.linkedin_url}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="font-bold hover:text-red-500"
@@ -82,10 +106,9 @@ export default function Header({...props}) {
                             Linkedin
                         </a>
                     </>
-                    {/*}*/}
+                    }
                 </li>
             </ul>
-            <DarkMode data={{data: ''}}/>
         </header>
     );
 }

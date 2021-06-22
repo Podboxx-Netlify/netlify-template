@@ -24,7 +24,9 @@ module.exports = {
         },
     },
     variants: {
-        extend: {},
+        extend: {
+            display: ['first', 'last']
+        },
     },
     plugins: [
         require('@tailwindcss/typography'),
