@@ -12,7 +12,6 @@ interface Data {
 }
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-
     const res = await fetch(`http://localhost:4000/api/${process.env.station_id}/blog?page=${context.query.page}&items_per_page=10`)
     const data: Data = await res.json()
     console.log('context:', context.params)
@@ -25,6 +24,8 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
 const Blog: React.FC<{ data: Data }> = ({data}) => {
     const router = useRouter()
+    const currentPage = parseInt(router.query.page as string)
+    console.log(currentPage)
     console.log(data)
 
     const handlePageClick = (data) => {
@@ -64,6 +65,7 @@ const Blog: React.FC<{ data: Data }> = ({data}) => {
                     pageClassName={'text-white text-lg px-3 mx-2 hover:text-red-500'}
                     breakLinkClassName={'text-white text-lg px-3 mx-2 hover:text-red-500'}
                     disabledClassName={'material-icons-outlined '}
+                    forcePage={currentPage-1 || 1}
                 />
             </div>
         </>
