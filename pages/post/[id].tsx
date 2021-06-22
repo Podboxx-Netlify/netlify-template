@@ -2,14 +2,27 @@ import {GetServerSideProps} from 'next'
 import React from "react";
 import Layout from "../../components/layout/layout";
 import VerticalAd from "../../components/vertical-ad";
+import useSWR from 'swr'
+import {useRouter} from "next/router";
+
+export function GetPost() {
+    const router = useRouter()
+    const { id } = router.query
+    const { data, error } = useSWR(`http://localhost:4000/api/${process.env.station_id}/podcast/` + id)
+    if (error) return <span className='text-2xl text-white'>failed to load</span>
+    if (!data) return <span className='text-2xl text-white'>loading...</span>
+    // console.log('data:', data)
+    return data
+}
 
 interface Data {
-    name: string
-    nutritions: {}
+    title: string
+    blog_content?: string
+
 }
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-    const res = await fetch('https://www.fruityvice.com/api/fruit/' + context.query.id)
+    const res = await fetch('http://localhost:4000/api/6/podcast/' + context.query.id)
     const data: Data = await res.json()
     // console.log(data)
     return {
@@ -20,6 +33,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 }
 
 const Post: React.FC<{ data: Data }> = ({data}) => {
+    // console.log(GetPost())
     return (
         <>
             <Layout>
@@ -35,20 +49,22 @@ const Post: React.FC<{ data: Data }> = ({data}) => {
                     {/*)}*/}
                     {/*</>*/}
                     <article className="prose prose-sm sm:prose lg:prose-lg xl:prose-xl mx-auto ">
-                        <h1 className='text-center '>Fruit Name: {data.name}</h1>
+                        <h1 className='text-center capitalize'>{data.title}</h1>
+                        {/*<p dangerouslySetInnerHTML={{__html: data.blog_content}}/>*/}
+                        <p>{data.blog_content}</p>
                         {/*<Image className=''/>*/}
-                        <p className=''>
-                            For years parents have espoused the health benefits of eating garlic bread with cheese to
-                            their
-                            children, with the food earning such an iconic status in our culture that kids will often
-                            dress
-                            up as warm, cheesy loaf for Halloween.
-                        </p>
-                        <p>
-                            But a recent study shows that the celebrated appetizer may be linked to a series of rabies
-                            cases
-                            springing up around the country.
-                        </p>
+                        {/*<p className=''>*/}
+                        {/*    For years parents have espoused the health benefits of eating garlic bread with cheese to*/}
+                        {/*    their*/}
+                        {/*    children, with the food earning such an iconic status in our culture that kids will often*/}
+                        {/*    dress*/}
+                        {/*    up as warm, cheesy loaf for Halloween.*/}
+                        {/*</p>*/}
+                        {/*<p>*/}
+                        {/*    But a recent study shows that the celebrated appetizer may be linked to a series of rabies*/}
+                        {/*    cases*/}
+                        {/*    springing up around the country.*/}
+                        {/*</p>*/}
                     </article>
                     <br/>
                     <iframe className='sm:m-4 sm:rounded-2xl h-72 sm:h-player ' height='235' src="https://player.podboxx.com/33807"

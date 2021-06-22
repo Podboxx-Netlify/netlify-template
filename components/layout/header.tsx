@@ -1,12 +1,17 @@
 import Link from 'next/link'
+import DarkMode from "../dark-mode";
+import React from "react";
 
-export default function Header() {
+export default function Header({...props}) {
+    // console.log(props)
+    // console.log(props.data.title)
     return (
         <header className="bg-hero mb-12">
             <ul className="flex items-center justify-center lg:container px-4 py-1 mx-auto text-sm text-white md:px-6">
                 <li className="site-header text-white text-5xl text-center justify-self-center">
                     <Link href="/">
-                        Tommy&apos;s Blog
+                        {/*oi*/}
+                        <a>{props.data.title}</a>
                     </Link>
                 </li>
             </ul>
@@ -65,17 +70,22 @@ export default function Header() {
                     >
                         Spotify
                     </a>
-                    <a className='select-none'> | </a>
-                    <a
-                        href="https://github.com/oddstronaut/next-starter-tailwind"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="font-bold hover:text-red-500"
-                    >
-                        Linkedin
-                    </a>
+                    {/*{props.data.linkedin_url !== null &&*/}
+                    <>
+                        <a className='select-none'> | </a>
+                        <a
+                            href="https://github.com/oddstronaut/next-starter-tailwind"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="font-bold hover:text-red-500"
+                        >
+                            Linkedin
+                        </a>
+                    </>
+                    {/*}*/}
                 </li>
             </ul>
+            <DarkMode data={{data: ''}}/>
         </header>
     );
 }
