@@ -14,21 +14,16 @@ export function GetWebsite() {
 }
 
 export default function Layout({...props}) {
-
     const website = GetWebsite()
-    // console.log(GetWebsite())
-    // console.log(props.data.website)
-    console.log(props)
     return (
         <div className="flex flex-col min-h-screen">
-            {/*<GetWebsite/>*/}
             <Header data={website}/>
             {/*<Socials data={props.data}/>*/}
             <div className='container mx-auto flex-grow'>
                 {props.children}
             </div>
             <VerticalAd/>
-            <Footer/>
+            <Footer data={website}/>
         </div>
     );
 }
