@@ -36,10 +36,10 @@ export default function DarkMode() {
             {theme === 'dark' ? <>
                 <button className="material-icons-outlined md-36" onClick={() => handleThemeChange('light')}>
                     {/*<a className='material-icons-outlined md-36 text-white'>light_mode</a>*/}
-                    <img src={"/light_mode_icon.svg"} alt="light mode"/>
+                    <Image src={"/light_mode_icon.svg"} alt="light mode" height={30} width={30}/>
                 </button></> : <button onClick={() => handleThemeChange('dark')}>
                     {/*<a className='material-icons-outlined text-black'>dark_mode</a>*/}
-                <img src={"/dark_mode_icon.svg"} alt="dark mode"/>
+                <Image src={"/dark_mode_icon.svg"} alt="dark mode" height={30} width={30}/>
                 </button>
 
             }
