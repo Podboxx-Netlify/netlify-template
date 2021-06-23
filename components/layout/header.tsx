@@ -5,7 +5,7 @@ import DarkMode from "../dark-mode";
 export default function Header({...props}) {
 
     return (
-        <header className="bg-hero mb-12">
+        <header className="bg-hero mb-12 ">
             <ul className="flex items-center justify-center lg:container px-4 py-1 mx-auto text-sm text-black dark:text-white md:px-6">
                 <li className="site-header text-black dark:text-white text-5xl text-center justify-self-center">
                     <Link href="/">

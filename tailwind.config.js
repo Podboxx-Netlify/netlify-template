@@ -41,12 +41,12 @@ module.exports = {
             addComponents({
                 '.container': {
                     maxWidth: '100%',
-                    '@screen sm': {
-                        maxWidth: '515px',
-                    },
-                    '@screen md': {
-                        maxWidth: '625px',
-                    },
+                    // '@screen sm': {
+                    //     maxWidth: '515px',
+                    // },
+                    // '@screen md': {
+                    //     maxWidth: '625px',
+                    // },
                     '@screen lg': {
                         maxWidth: '1120px',
                     },

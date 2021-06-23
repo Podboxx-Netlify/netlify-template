@@ -28,7 +28,7 @@ export default function DarkMode() {
     return (
         <div className="text-right mr-10 pb-2">
             {theme === 'dark' ?
-                <button className="material-icons-outlined md-36" onClick={() => handleThemeChange('light')}>
+                <button onClick={() => handleThemeChange('light')}>
                     <Image src={"/light_mode_icon.png"} alt="light mode" height={30} width={30}/>
                 </button>
                 : <button onClick={() => handleThemeChange('dark')}>

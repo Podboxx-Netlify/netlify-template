@@ -25,13 +25,11 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 const Blog: React.FC<{ data: Data }> = ({data}) => {
     const router = useRouter()
     const currentPage = parseInt(router.query.page as string)
-    console.log(currentPage)
-    console.log(data)
 
     const handlePageClick = (data) => {
         router.push(`/?page=${data.selected + 1}`)
     }
-    console.log(router)
+
     return (
         <>
             <div className="grid grid-cols-1 gap-5 xl:grid-cols-2 justify-items-center justify-center">
@@ -62,10 +60,10 @@ const Blog: React.FC<{ data: Data }> = ({data}) => {
                     activeLinkClassName={'text-bold text-2xl text-red-500'}
                     previousClassName={'dark:text-white material-icons-outlined pt-0.5 hover:text-red-500'}
                     nextClassName={'dark:text-white material-icons-outlined pt-0.5 hover:text-red-500'}
-                    pageClassName={'dark:text-white text-lg px-3 mx-2 hover:text-red-500'}
-                    breakLinkClassName={'dark:text-white text-lg px-3 mx-2 hover:text-red-500'}
+                    pageClassName={'dark:text-white text-lg sm:px-3 mx-2 hover:text-red-500'}
+                    breakLinkClassName={'dark:text-white text-lg sm:px-3 mx-2 hover:text-red-500'}
                     disabledClassName={'material-icons-outlined'}
-                    forcePage={currentPage-1 || 0}
+                    forcePage={currentPage - 1 || 0}
                 />
             </div>
         </>
