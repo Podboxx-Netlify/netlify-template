@@ -41,7 +41,8 @@ const Blog: React.FC<{ data: Data }> = ({data}) => {
                             description: data.podcasts[index]['description'],
                             blog_content: data.podcasts[index]['blogContent'],
                             // img_url: data.podcasts[index]['image_url'] || '/header_card.png',
-                            img_url: 'https://podboxx-production.s3.amazonaws.com/jbjo25oynjl4egwpljo4u857g720',
+                            // img_url: 'https://podboxx-production.s3.amazonaws.com/jbjo25oynjl4egwpljo4u857g720',
+                            img_url: '/header_card.png',
                             publication_date: data.podcasts[index]['publication_date']
                         }}/>
                     </div>
