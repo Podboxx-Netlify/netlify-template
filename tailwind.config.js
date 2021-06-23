@@ -10,6 +10,7 @@ module.exports = {
                 'cards-dark': '#292d35',
                 'main-dark': '#151a23',
                 'header-red': '#4d1e1f',
+                'post': '#202527',
             },
             typography: (theme) => ({
                 DEFAULT: {

@@ -40,7 +40,7 @@ const Post: React.FC<{ data: Data }> = ({data}) => {
                     {/*<p>{data.blog_content}</p>*/}
                 </article>
                 <br/>
-                <iframe className='sm:m-4 h-72  ' height='235'
+                <iframe className='sm:m-4' height='300'
                         src={"https://player.podboxx.com/" + router.query.id}
                         allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
                         allowFullScreen/>
