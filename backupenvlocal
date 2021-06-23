@@ -1,2 +1,0 @@
-NEXT_IMAGE_ALLOWED_DOMAINS=podboxx-production.s3.amazonaws.com
-FORCE_WEBP_OUTPUT=true
