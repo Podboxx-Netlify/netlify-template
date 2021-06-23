@@ -27,7 +27,7 @@ MyApp.getInitialProps = async (Component, ctx) => {
     if (Component.getInitialProps) {
         pageProps = await Component.getInitialProps(ctx);
     }
-    console.log(process.env.NEXT_IMAGE_ALLOWED_DOMAINS)
+    console.log(process.env.NEXT_IMAGE_ALLOWED_DOMAINS.split(',').map((domain) => domain.trim()))
     return {pageProps, websiteData};
 }
 
