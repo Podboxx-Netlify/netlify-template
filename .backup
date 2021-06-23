@@ -1,0 +1,2 @@
+NEXT_IMAGE_ALLOWED_DOMAINS="next.podboxx.com"
+FORCE_WEBP_OUTPUT="true"
