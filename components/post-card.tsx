@@ -1,6 +1,7 @@
 import React from "react";
 import Image from 'next/image'
 import Link from 'next/link'
+import Moment from 'moment';
 
 interface Post {
     id: number
@@ -15,8 +16,7 @@ const PostCard: React.FC<{ data: Post }> = ({data}) => {
     return (
         <>
             <div
-                className=" p-2 w-80 max-w-2xl sm:w-full sm:p-4 h-auto sm:h-56 rounded-2xl red-shadow flex flex-col sm:flex-row gap-5 select-none"
-                style={{backgroundColor: '#292d35'}}>
+                className=" p-2 w-80 max-w-2xl sm:w-full sm:p-4 h-auto sm:h-56 rounded-2xl red-shadow flex flex-col sm:flex-row gap-5 select-none bg-gray-500 dark:bg-cards-dark">
                 {data.img_url ?
                     <Image objectFit='cover' className='rounded-xl' alt='data.title' src={data.img_url} quality='60'
                            height='h-48 sm:h-48' width='sm:w-48'/> : <></>
@@ -25,8 +25,9 @@ const PostCard: React.FC<{ data: Post }> = ({data}) => {
                     <h1 className="text-lg sm:text-lg font-semibold text-gray-300 line-clamp-3 overflow-hidden overflow-ellipsis">
                         {data.title}
                     </h1>
-                    <p className="text-gray-400 text-sm sm:text-base line-clamp-3 overflow-hidden overflow-ellipsis whitespace-normal max-h-24 prose"
-                       dangerouslySetInnerHTML={{__html: data.publication_date}}/>
+                    <p className="text-gray-400 text-sm sm:text-base line-clamp-3 overflow-hidden overflow-ellipsis whitespace-normal max-h-24 prose">
+                        {Moment.utc(data.publication_date).format('MMMM DD YYYY') }
+                    </p>
                     <div className="flex gap-5 mt-auto">
                         <button
                             className='ml-auto flex items-center gap-3 sm:text-lg border-2 border-red-900 px-3 py-1 rounded-full hover:bg-gray-300 transition-colors focus:bg-gray-300 focus:outline-none focus-visible:border-gray-500'

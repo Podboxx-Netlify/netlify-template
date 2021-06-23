@@ -6,6 +6,11 @@ module.exports = {
             spacing: {
                 'player': '235px',
             },
+            colors: {
+                'cards-dark': '#292d35',
+                'main-dark': '#151a23',
+                'header-red': '#4d1e1f',
+            },
             typography: (theme) => ({
                 DEFAULT: {
                     css: {

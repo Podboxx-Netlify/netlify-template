@@ -10,7 +10,7 @@ interface Data {
 }
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-    const res = await fetch('http://localhost:4000/api/6/podcast/' + context.query.id)
+    const res = await fetch('http://localhost:4000/api/podcast/' + context.query.id)
     const data: Data = await res.json()
     return {
         props: {

@@ -6,14 +6,14 @@ export default function Header({...props}) {
 
     return (
         <header className="bg-hero mb-12">
-            <ul className="flex items-center justify-center lg:container px-4 py-1 mx-auto text-sm text-white md:px-6">
-                <li className="site-header text-white text-5xl text-center justify-self-center">
+            <ul className="flex items-center justify-center lg:container px-4 py-1 mx-auto text-sm text-black dark:text-white md:px-6">
+                <li className="site-header text-black dark:text-white text-5xl text-center justify-self-center">
                     <Link href="/">
-                        <a>{props.data.title}</a>
+                        <a className="">{props.data.title}</a>
                     </Link>
                 </li>
             </ul>
-            <ul className="flex items-center text-center justify-center lg:container px-5 my-auto text-md text-white md:px-6 flex-wrap ">
+            <ul className="flex items-center text-center justify-center lg:container px-5 my-auto text-md text-black dark:text-white md:px-6 flex-wrap ">
                 <li className='mb-5'>
                     {props.data.fb_url !== null &&
                     <>
@@ -109,6 +109,7 @@ export default function Header({...props}) {
                     }
                 </li>
             </ul>
+            <DarkMode/>
         </header>
     );
 }
