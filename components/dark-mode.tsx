@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from "react";
+import Image from 'next/image'
 
 interface Data {
     data?: string
@@ -31,18 +32,18 @@ export default function DarkMode() {
     }
 
     return (
-        <>
-            <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
-                  rel="stylesheet"/>
-            {theme === 'dark' ?
+        <div className="text-right mr-10 pb-2">
+            {theme === 'dark' ? <>
                 <button className="material-icons-outlined md-36" onClick={() => handleThemeChange('light')}>
-                    <a className='material-icons-outlined md-36 text-white'>light_mode</a>
-
-                </button> : <button onClick={() => handleThemeChange('dark')}>
-                    <a className='material-icons-outlined text-black'>dark_mode</a>
+                    {/*<a className='material-icons-outlined md-36 text-white'>light_mode</a>*/}
+                    <Image src={"/light_mode_icon.svg"} alt="light mode" height={30} width={30}/>
+                </button></> : <button onClick={() => handleThemeChange('dark')}>
+                    {/*<a className='material-icons-outlined text-black'>dark_mode</a>*/}
+                <Image src={"/dark_mode_icon.svg"} alt="light mode" height={30} width={30}/>
                 </button>
+
             }
             {/*<span className="material-icons md-36">face</span>*/}
-        </>
+        </div>
     )
 }

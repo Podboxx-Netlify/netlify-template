@@ -93,7 +93,6 @@ export default function Header({...props}) {
                         </a>
                     </>
                     }
-                    <a className='select-none last:hidden'> | </a>
                     {props.data.linkedin_url !== null &&
                     <>
                         <a className='select-none first:hidden last:hidden'> | </a>

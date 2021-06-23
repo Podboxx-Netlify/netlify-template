@@ -8,11 +8,10 @@ export default function Layout({...props}) {
     return (
         <div className="flex flex-col min-h-screen">
             <Header data={props.website}/>
-
             <div className='container mx-auto flex-grow z-10'>
                 {props.children}
             </div>
-            <VerticalAd/>
+            {/*<VerticalAd/>*/}
             <Footer data={props.website}/>
         </div>
     );

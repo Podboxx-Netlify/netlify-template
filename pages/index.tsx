@@ -12,7 +12,8 @@ interface Data {
 }
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-    const res = await fetch(`http://localhost:4000/api/${process.env.station_id}/blog?page=${context.query.page}&items_per_page=10`)
+    // const res = await fetch(`http://localhost:4000/api/${process.env.station_id}/blog?page=${context.query.page}&items_per_page=10`)
+    const res = await fetch(`https://api.podboxx.com/api/${process.env.station_id}/blog?page=${context.query.page}`)
     const data: Data = await res.json()
     return {
         props: {
@@ -59,11 +60,11 @@ const Blog: React.FC<{ data: Data }> = ({data}) => {
                     nextLabel='navigate_next'
                     previousLabel='navigate_before'
                     activeLinkClassName={'text-bold text-2xl text-red-500'}
-                    previousClassName={'text-white material-icons-outlined pt-0.5 hover:text-red-500'}
-                    nextClassName={'text-white material-icons-outlined pt-0.5 hover:text-red-500'}
+                    previousClassName={'dark:text-white material-icons-outlined pt-0.5 hover:text-red-500'}
+                    nextClassName={'dark:text-white material-icons-outlined pt-0.5 hover:text-red-500'}
                     pageClassName={'dark:text-white text-lg px-3 mx-2 hover:text-red-500'}
-                    breakLinkClassName={'text-white text-lg px-3 mx-2 hover:text-red-500'}
-                    disabledClassName={'material-icons-outlined '}
+                    breakLinkClassName={'dark:text-white text-lg px-3 mx-2 hover:text-red-500'}
+                    disabledClassName={'material-icons-outlined'}
                     forcePage={currentPage-1 || 0}
                 />
             </div>

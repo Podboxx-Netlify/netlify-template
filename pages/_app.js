@@ -20,7 +20,8 @@ function MyApp({Component, pageProps, websiteData}) {
 }
 
 MyApp.getInitialProps = async (Component, ctx) => {
-    const res = await fetch(`http://localhost:4000/api/${process.env.station_id}/website`)
+    // const res = await fetch(`http://localhost:4000/api/${process.env.station_id}/website`)
+    const res = await fetch(`https://api.podboxx.com/api/${process.env.station_id}/website`)
     const websiteData = await res.json()
     let pageProps = {};
     if (Component.getInitialProps) {
