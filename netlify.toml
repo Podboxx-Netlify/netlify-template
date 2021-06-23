@@ -1,6 +1,7 @@
 [build]
     command = "CI= npm run build"
     publish = "out"
+    environment = { NEXT_IMAGE_ALLOWED_DOMAINS = "podboxx-production.s3.amazonaws.com, podboxx-development.s3.amazonaws.com, next.podboxx.com", FORCE_WEBP_OUTPUT = 'true' }
 
 [[plugins]]
     package = "@netlify/plugin-nextjs"
