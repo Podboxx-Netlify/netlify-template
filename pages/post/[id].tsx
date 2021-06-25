@@ -1,6 +1,5 @@
 import {GetServerSideProps} from 'next'
 import React from "react";
-import Layout from "../../components/layout/layout";
 import {useRouter} from "next/router";
 
 interface Data {
@@ -11,11 +10,20 @@ interface Data {
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
     const res = await fetch('https://api.podboxx.com/api/podcast/' + context.query.id)
-    const data: Data = await res.json()
-    return {
-        props: {
-            data,
-        },
+    if (res.status !== 200) {
+        const data = {}
+        return {
+            props: {
+                data,
+            },
+        }
+    } else {
+        const data: Data = await res.json()
+        return {
+            props: {
+                data,
+            },
+        }
     }
 }
 
@@ -31,7 +39,7 @@ const Post: React.FC<{ data: Data }> = ({data}) => {
                     onClick={() => router.back()}>Go Back
                 </button>
                 <article className="prose prose-sm sm:prose lg:prose-lg  mx-auto ">
-                    <h1 className='text-center capitalize'>{data.title}</h1>
+                    <h1 className='text-center capitalize'>{data.title || 'Error loading the episode'}</h1>
                     {/*<div dangerouslySetInnerHTML={{__html: data.blog_content !== null ? data.blog_content:data.description}}/>*/}
                     {data.blog_content !== null &&
                     <div
@@ -40,10 +48,12 @@ const Post: React.FC<{ data: Data }> = ({data}) => {
                     {/*<p>{data.blog_content}</p>*/}
                 </article>
                 <br/>
+                {data.title &&
                 <iframe className='sm:m-4' height='300'
                         src={"https://player.podboxx.com/" + router.query.id}
                         allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
                         allowFullScreen/>
+                }
             </div>
         </>
     )

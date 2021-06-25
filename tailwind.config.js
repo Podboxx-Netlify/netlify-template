@@ -31,7 +31,7 @@ module.exports = {
     },
     variants: {
         extend: {
-            display: ['first', 'last']
+            display: ['first', 'last', 'dark']
         },
     },
     plugins: [

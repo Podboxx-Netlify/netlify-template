@@ -32,7 +32,8 @@ const Blog: React.FC<{ data: Data }> = ({data}) => {
 
     return (
         <>
-            <div className="grid grid-cols-1 gap-5 xl:grid-cols-2 justify-items-center justify-center">
+            {data.podcasts && Object.keys(data.podcasts).length > 0 ?
+                <div className="grid grid-cols-1 gap-5 xl:grid-cols-2 justify-items-center justify-center">
                 {Object.keys(data.podcasts).map((value, index) =>
                     <div key={index} className='w-full'>
                         <PostCard data={{
@@ -47,8 +48,9 @@ const Blog: React.FC<{ data: Data }> = ({data}) => {
                         }}/>
                     </div>
                 )}
-            </div>
+            </div>:<h1 className='text-main-dark dark:text-white text-5xl text-center justify-self-center select-none'>No episodes to display</h1>}
 
+            {data.pages > 1 &&
             <div className="py-2">
                 <ReactPaginate
                     pageCount={data.pages}
@@ -67,7 +69,7 @@ const Blog: React.FC<{ data: Data }> = ({data}) => {
                     disabledClassName={'material-icons-outlined'}
                     forcePage={currentPage - 1 || 0}
                 />
-            </div>
+            </div>}
         </>
     )
 }
