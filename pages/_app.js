@@ -14,7 +14,7 @@ Router.events.on('routeChangeError', () => NProgress.done())
 function MyApp({Component, pageProps, websiteData}) {
     return (
         <Layout website={websiteData}>
-            <title>{websiteData.title}</title>
+            <title>{websiteData && websiteData.title || 'Error'}</title>
             <Component {...pageProps} website={websiteData}/>
         </Layout>
     )
@@ -22,7 +22,7 @@ function MyApp({Component, pageProps, websiteData}) {
 
 MyApp.getInitialProps = async (Component, ctx) => {
     // const res = await fetch(`http://localhost:4000/api/${process.env.station_id}/website`)
-    const res = await fetch(`https://api.podboxx.com/api/${process.env.station_id}/website`)
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}${process.env.station_id}/website`)
     const websiteData = await res.json()
     let pageProps = {};
     if (Component.getInitialProps) {

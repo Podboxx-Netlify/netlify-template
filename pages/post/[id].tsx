@@ -9,8 +9,8 @@ interface Data {
 }
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-    // const res = await fetch(`http://localhost:4000/api/${process.env.station_id}/podcast/${context.query.id}`)
-    const res = await fetch(`https://api.podboxx.com/api/${process.env.station_id}/podcast/${context.query.id}`)
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}${process.env.station_id}/podcast/${context.query.id}`)
+    // const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/podcast/${context.query.id}`)
     if (res.status !== 200) {
         const data = {}
         return {
@@ -41,12 +41,10 @@ const Post: React.FC<{ data: Data }> = ({data}) => {
                 </button>
                 <article className="prose prose-sm sm:prose lg:prose-lg  mx-auto ">
                     <h1 className='text-center capitalize'>{data.title || 'Error loading the episode'}</h1>
-                    {/*<div dangerouslySetInnerHTML={{__html: data.blog_content !== null ? data.blog_content:data.description}}/>*/}
                     {data.blog_content !== null &&
                     <div
                         dangerouslySetInnerHTML={{__html: data.blog_content}}/>
                     }
-                    {/*<p>{data.blog_content}</p>*/}
                 </article>
                 <br/>
                 {data.title &&

@@ -1,8 +1,6 @@
 import Header from './header'
 import Footer from './footer'
-import VerticalAd from "../vertical-ad";
 import React from "react";
-import DarkMode from "../dark-mode";
 
 export default function Layout({...props}) {
     return (

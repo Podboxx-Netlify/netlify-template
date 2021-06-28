@@ -16,12 +16,12 @@ export default function Header({...props}) {
             {props.data &&
             <ul
                 className="flex items-center text-center justify-center lg:container px-5 my-auto text-md text-black dark:text-white md:px-6 flex-wrap select-none">
-                <li className='mb-5'>
-                    {props.data.fb_url !== null &&
+                <li>
+                    {props.data.my_podboxx?.fb_url !== null &&
                     <>
                         <a className='select-none first:hidden last:hidden'> | </a>
                         <a
-                            href={props.data.fb_url}
+                            href={props.data.my_podboxx?.fb_url}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="font-bold hover:text-red-500"
@@ -30,11 +30,11 @@ export default function Header({...props}) {
                         </a>
                     </>
                     }
-                    {props.data.twitter_url !== null &&
+                    {props.data.my_podboxx?.twitter_url !== null &&
                     <>
                         <a className='select-none first:hidden last:hidden'> | </a>
                         <a
-                            href={props.data.twitter_url}
+                            href={props.data.my_podboxx?.twitter_url}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="font-bold hover:text-red-500"
@@ -43,11 +43,11 @@ export default function Header({...props}) {
                         </a>
                     </>
                     }
-                    {props.data.youtube_url !== null &&
+                    {props.data.my_podboxx?.youtube_url !== null &&
                     <>
                         <a className='select-none first:hidden last:hidden'> | </a>
                         <a
-                            href={props.data.youtube_url}
+                            href={props.data.my_podboxx?.youtube_url}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="font-bold hover:text-red-500"
@@ -56,11 +56,11 @@ export default function Header({...props}) {
                         </a>
                     </>
                     }
-                    {props.data.google_url !== null &&
+                    {props.data.my_podboxx?.google_url !== null &&
                     <>
                         <a className='select-none first:hidden last:hidden'> | </a>
                         <a
-                            href={props.data.google_url}
+                            href={props.data.my_podboxx?.google_url}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="font-bold hover:text-red-500"
@@ -69,11 +69,11 @@ export default function Header({...props}) {
                         </a>
                     </>
                     }
-                    {props.data.apple_url !== null &&
+                    {props.data.my_podboxx?.apple_url !== null &&
                     <>
                         <a className='select-none first:hidden last:hidden'> | </a>
                         <a
-                            href={props.data.apple_url}
+                            href={props.data.my_podboxx?.apple_url}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="font-bold hover:text-red-500"
@@ -82,11 +82,11 @@ export default function Header({...props}) {
                         </a>
                     </>
                     }
-                    {props.data.spotify_url !== null &&
+                    {props.data.my_podboxx?.spotify_url !== null &&
                     <>
                         <a className='select-none first:hidden last:hidden'> | </a>
                         <a
-                            href={props.data.spotify_url}
+                            href={props.data.my_podboxx?.spotify_url}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="font-bold hover:text-red-500"
@@ -95,11 +95,11 @@ export default function Header({...props}) {
                         </a>
                     </>
                     }
-                    {props.data.linkedin_url !== null &&
+                    {props.data.my_podboxx?.linkedin_url !== null &&
                     <>
                         <a className='select-none first:hidden last:hidden'> | </a>
                         <a
-                            href={props.data.linkedin_url}
+                            href={props.data.my_podboxx?.linkedin_url}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="font-bold hover:text-red-500"
@@ -110,7 +110,9 @@ export default function Header({...props}) {
                     }
                 </li>
             </ul>}
-            <DarkMode/>
+            <ul className="flex items-end text-right justify-end lg:container select-none mt-3 md:mt-0">
+                <DarkMode/>
+            </ul>
         </header>
     );
 }
