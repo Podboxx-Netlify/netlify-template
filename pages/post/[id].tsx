@@ -33,10 +33,10 @@ const Post: React.FC<{ data: Data }> = ({data}) => {
     return (
         <>
             <div
-                className="w-full sm:rounded-2xl shadow-lg flex flex-col sm:flex-col select-none gap-4"
+                className="w-full md:rounded-2xl shadow-lg flex flex-col sm:flex-col select-none gap-4"
                 style={{backgroundColor: '#292d35'}}>
                 <button
-                    className="text-left p-5 w-28 font-bold text-gray-300 text-lg hover:text-red-500"
+                    className="text-left p-5 w-28 font-bold text-gray-300 text-lg hover:text-red-500 focus:outline-none"
                     onClick={() => router.back()}>Go Back
                 </button>
                 <article className="prose prose-sm sm:prose lg:prose-lg  mx-auto ">
