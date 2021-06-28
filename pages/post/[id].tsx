@@ -9,16 +9,28 @@ interface Data {
 }
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
+    if (context.preview) {
+        console.log('preview ',context, context.preview, context.previewData)
+        const data = context.previewData
+        return {
+            props: {
+                data,
+            },
+        }
+    }
+    console.log('hey')
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}${process.env.station_id}/podcast/${context.query.id}`)
     // const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/podcast/${context.query.id}`)
     if (res.status !== 200) {
         const data = {}
+        console.log('hey')
         return {
             props: {
                 data,
             },
         }
     } else {
+        console.log('hey')
         const data: Data = await res.json()
         return {
             props: {
@@ -30,6 +42,8 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
 const Post: React.FC<{ data: Data }> = ({data}) => {
     const router = useRouter()
+    console.log(router)
+    console.log(router.isReady)
     return (
         <>
             <div
@@ -47,7 +61,7 @@ const Post: React.FC<{ data: Data }> = ({data}) => {
                     }
                 </article>
                 <br/>
-                {data.title &&
+                {router.isPreview !== true && data.title &&
                 <iframe className='sm:m-4' height='300'
                         src={"https://player.podboxx.com/" + router.query.id}
                         allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"

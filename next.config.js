@@ -1,6 +1,6 @@
 module.exports = {
     env: {
-        station_id: 71
+        station_id: 29
     },
     reactStrictMode: true,
     target: 'serverless',
