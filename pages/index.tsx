@@ -12,7 +12,7 @@ interface Data {
 }
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-    // const res = await fetch(`http://localhost:4000/api/${process.env.station_id}/blog?page=${context.query.page}&items_per_page=10`)
+    // const res = await fetch(`http://localhost:4000/api/${process.env.station_id}/blog?page=${context.query.page}`)
     const res = await fetch(`https://api.podboxx.com/api/${process.env.station_id}/blog?page=${context.query.page}`)
     const data: Data = await res.json()
     return {
@@ -50,10 +50,10 @@ const Blog: React.FC<{ data: Data }> = ({data}) => {
                 )}
             </div>:<h1 className='text-main-dark dark:text-white text-5xl text-center justify-self-center select-none'>No episodes to display</h1>}
 
-            {data.pages > 1 &&
+            {data.pages > 0 &&
             <div className="py-2">
                 <ReactPaginate
-                    pageCount={data.pages}
+                    pageCount={data.pages + 1}
                     marginPagesDisplayed={1}
                     pageRangeDisplayed={2}
                     onPageChange={handlePageClick}

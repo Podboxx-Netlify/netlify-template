@@ -9,7 +9,8 @@ interface Data {
 }
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-    const res = await fetch('https://api.podboxx.com/api/podcast/' + context.query.id)
+    // const res = await fetch(`http://localhost:4000/api/${process.env.station_id}/podcast/${context.query.id}`)
+    const res = await fetch(`https://api.podboxx.com/api/${process.env.station_id}/podcast/${context.query.id}`)
     if (res.status !== 200) {
         const data = {}
         return {
