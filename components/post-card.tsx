@@ -16,7 +16,7 @@ const PostCard: React.FC<{ data: Post }> = ({data}) => {
     return (
         <>
             <div
-                className=" p-2 w-auto max-w-2xl sm:w-full sm:p-4 h-auto sm:h-56 sm:rounded-2xl red-shadow flex flex-col sm:flex-row gap-5 select-none bg-gray-300 dark:bg-gray-500 dark:bg-cards-dark">
+                className="flex flex-col sm:flex-row p-2 w-auto lg:w-full sm:p-4 h-auto sm:h-56 lg:rounded-2xl red-shadow gap-5 select-none bg-gray-300 dark:bg-gray-500 dark:bg-cards-dark">
                 <Image objectFit='cover' className='rounded-xl' alt={data.title + ' image'} src={data.img_url}
                        quality='60' height='h-48 sm:h-48' width='sm:w-48' unoptimized={true}/>
                 <div className="flex sm:flex-1 flex-col gap-2 p-1">

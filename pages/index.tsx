@@ -33,7 +33,7 @@ const Blog: React.FC<{ data: Data }> = ({data}) => {
     return (
         <>
             {data.podcasts && Object.keys(data.podcasts).length > 0 ?
-                <div className="grid grid-cols-1 gap-5 xl:grid-cols-2 justify-items-center justify-center">
+                <div className="grid grid-cols-1 gap-5 lg:grid-cols-2 justify-items-center justify-center">
                 {Object.keys(data.podcasts).map((value, index) =>
                     <div key={index} className='w-full'>
                         <PostCard data={{
