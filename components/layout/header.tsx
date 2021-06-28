@@ -13,11 +13,11 @@ export default function Header({...props}) {
                     </Link>
                 </li>
             </ul>
-            {props.data &&
+            {props.data && props.data.my_podboxx &&
             <ul
                 className="flex items-center text-center justify-center lg:container px-5 my-auto text-md text-black dark:text-white md:px-6 flex-wrap select-none">
                 <li>
-                    {props.data.my_podboxx?.fb_url !== null &&
+                    {props.data.fb_url !== null &&
                     <>
                         <a className='select-none first:hidden last:hidden'> | </a>
                         <a

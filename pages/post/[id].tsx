@@ -39,7 +39,7 @@ const Post: React.FC<{ data: Data }> = ({data}) => {
                     className="text-left p-5 w-28 font-bold text-gray-300 text-lg hover:text-red-500 focus:outline-none"
                     onClick={() => router.back()}>Go Back
                 </button>
-                <article className="prose prose-sm sm:prose lg:prose-lg  mx-auto ">
+                <article className="prose prose-sm sm:prose lg:prose-lg mx-auto">
                     <h1 className='text-center capitalize'>{data.title || 'Error loading the episode'}</h1>
                     {data.blog_content !== null &&
                     <div

@@ -34,22 +34,21 @@ const Blog: React.FC<{ data: Data }> = ({data}) => {
         <>
             {data.podcasts && Object.keys(data.podcasts).length > 0 ?
                 <div className="grid grid-cols-1 gap-5 lg:grid-cols-2 justify-items-center justify-center">
-                {Object.keys(data.podcasts).map((value, index) =>
-                    <div key={index} className='w-full'>
-                        <PostCard data={{
-                            id: data.podcasts[index]['id'],
-                            title: data.podcasts[index]['title'],
-                            description: data.podcasts[index]['description'],
-                            blog_content: data.podcasts[index]['blogContent'],
-                            img_url: data.podcasts[index]['image_url'] || '/header_card.png',
-                            // img_url: 'https://podboxx-production.s3.amazonaws.com/jbjo25oynjl4egwpljo4u857g720',
-                            // img_url: '/header_card.png',
-                            publication_date: data.podcasts[index]['publication_date']
-                        }}/>
-                    </div>
-                )}
-            </div>:<h1 className='text-main-dark dark:text-white text-5xl text-center justify-self-center select-none'>No episodes to display</h1>}
-
+                    {Object.keys(data.podcasts).map((value, index) =>
+                        <div key={index} className='w-full'>
+                            <PostCard data={{
+                                id: data.podcasts[index]['id'],
+                                title: data.podcasts[index]['title'],
+                                description: data.podcasts[index]['description'],
+                                blog_content: data.podcasts[index]['blogContent'],
+                                img_url: data.podcasts[index]['image_url'] || '/header_card.png',
+                                publication_date: data.podcasts[index]['publication_date']
+                            }}/>
+                        </div>
+                    )}
+                </div> :
+                <h1 className='text-main-dark dark:text-white text-5xl text-center justify-self-center select-none'>No
+                    episodes to display</h1>}
             {data.pages > 0 &&
             <div className="py-2">
                 <ReactPaginate
