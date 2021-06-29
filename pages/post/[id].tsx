@@ -1,5 +1,5 @@
 import {GetServerSideProps} from 'next'
-import React from "react";
+import React, {useEffect} from "react";
 import {useRouter} from "next/router";
 
 interface Data {
@@ -10,7 +10,7 @@ interface Data {
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
     if (context.query.preview) {
-        const data = {title: context.query.title,blog_content: context.query.blog_content}
+        const data = {title: context.query.title, blog_content: context.query.blog_content}
         return {
             props: {
                 data,
@@ -38,7 +38,14 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
 const Post: React.FC<{ data: Data }> = ({data}) => {
     const router = useRouter()
-    const playerId = router.query.id == 'preview' ? '38010':router.query.id
+    const playerId = router.query.id == 'preview' ? '38010' : router.query.id
+    useEffect(() => {
+        // If in preview mode send message when page is loaded
+        if (router.query.id == 'preview') {
+            router.isReady && console.log('message');
+            router.isReady && parent.postMessage('Ready', '*')
+        }
+    }, [router.isReady, router.query.id])
     return (
         <>
             <div
@@ -61,7 +68,7 @@ const Post: React.FC<{ data: Data }> = ({data}) => {
                 <br/>
                 {data.title && router.query.id &&
                 <iframe className='sm:m-4' height='300'
-                        src={"https://player.podboxx.com/" + playerId }
+                        src={"https://player.podboxx.com/" + playerId}
                         allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
                         allowFullScreen/>
                 }
