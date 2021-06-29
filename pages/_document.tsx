@@ -9,7 +9,7 @@ class MyDocument extends Document {
     render() {
         return (
             <Html>
-                <Head/>
+                <Head />
                 <body className="bg:white dark:bg-main-dark">
                 <Main/>
                 <NextScript/>
