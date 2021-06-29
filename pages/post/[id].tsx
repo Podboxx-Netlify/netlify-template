@@ -10,8 +10,6 @@ interface Data {
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
     if (context.query.preview) {
-        // console.log('preview ',context, context.preview, context.previewData)
-        console.log(context.query)
         const data = {title: context.query.title,blog_content: context.query.blog_content}
         return {
             props: {
@@ -41,7 +39,6 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 const Post: React.FC<{ data: Data }> = ({data}) => {
     const router = useRouter()
     const playerId = router.query.id == 'preview' ? '38010':router.query.id
-    // console.log(router.isReady)
     return (
         <>
             <div
