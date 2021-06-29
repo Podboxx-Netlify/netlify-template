@@ -9,28 +9,26 @@ interface Data {
 }
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-    if (context.preview) {
-        console.log('preview ',context, context.preview, context.previewData)
-        const data = context.previewData
+    if (context.query.preview) {
+        // console.log('preview ',context, context.preview, context.previewData)
+        console.log(context.query)
+        const data = {title: context.query.title,blog_content: context.query.blog_content}
         return {
             props: {
                 data,
             },
         }
     }
-    console.log('hey')
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}${process.env.station_id}/podcast/${context.query.id}`)
     // const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/podcast/${context.query.id}`)
     if (res.status !== 200) {
         const data = {}
-        console.log('hey')
         return {
             props: {
                 data,
             },
         }
     } else {
-        console.log('hey')
         const data: Data = await res.json()
         return {
             props: {
@@ -42,8 +40,8 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
 const Post: React.FC<{ data: Data }> = ({data}) => {
     const router = useRouter()
-    console.log(router)
-    console.log(router.isReady)
+    const playerId = router.query.id == 'preview' ? '38010':router.query.id
+    // console.log(router.isReady)
     return (
         <>
             <div
@@ -51,7 +49,10 @@ const Post: React.FC<{ data: Data }> = ({data}) => {
                 style={{backgroundColor: '#292d35'}}>
                 <button
                     className="text-left p-5 w-28 font-bold text-gray-300 text-lg hover:text-red-500 focus:outline-none"
-                    onClick={() => router.back()}>Go Back
+                    onClick={() => {
+                        router.query.id !== 'preview' &&
+                        router.back()
+                    }}>Go Back
                 </button>
                 <article className="prose prose-sm sm:prose lg:prose-lg mx-auto">
                     <h1 className='text-center capitalize'>{data.title || 'Error loading the episode'}</h1>
@@ -61,9 +62,9 @@ const Post: React.FC<{ data: Data }> = ({data}) => {
                     }
                 </article>
                 <br/>
-                {router.isPreview !== true && data.title &&
+                {data.title && router.query.id &&
                 <iframe className='sm:m-4' height='300'
-                        src={"https://player.podboxx.com/" + router.query.id}
+                        src={"https://player.podboxx.com/" + playerId }
                         allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
                         allowFullScreen/>
                 }

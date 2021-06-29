@@ -13,7 +13,6 @@ interface Data {
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
     // const res = await fetch(`http://localhost:4000/api/${process.env.station_id}/blog?page=${context.query.page}`)
-    console.log(context.preview, context.previewData)
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}${process.env.station_id}/blog?page=${context.query.page}`)
     const data: Data = await res.json()
     return {
