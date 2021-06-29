@@ -8,7 +8,7 @@ class MyDocument extends Document {
 
     render() {
         return (
-            <Html data-theme='dark'>
+            <Html>
                 <Head/>
                 <body className="bg:white dark:bg-main-dark">
                 <Main/>
