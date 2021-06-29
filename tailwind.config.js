@@ -53,6 +53,7 @@ module.exports = {
     plugins: [
         require('@tailwindcss/typography'),
         require('@tailwindcss/line-clamp'),
+        require('daisyui'),
         function ({addComponents}) {
             addComponents({
                 '.container': {
@@ -73,4 +74,12 @@ module.exports = {
             })
         }
     ],
+    daisyui: {
+        styled: true,
+        themes: true,
+        base: true,
+        utils: true,
+        logs: true,
+        rtl: false,
+    },
 }

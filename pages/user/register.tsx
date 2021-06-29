@@ -1,12 +1,6 @@
-import {GetServerSideProps} from "next";
 import React, {useState} from "react";
 
-interface Data {
-    website?: [title: string]
-}
-
-
-const Register: React.FC<{ data: Data }> = ({data}) => {
+const Register: React.FC = () => {
     const [formData, setFormData] = useState({
         first_name: '',
         last_name: '',
