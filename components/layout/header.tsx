@@ -112,6 +112,22 @@ export default function Header({...props}) {
             </ul>}
             <ul className="flex items-end text-right justify-end lg:container select-none mt-3 md:mt-0">
                 <DarkMode/>
+                <div className="dropdown dropdown-end">
+                    <div tabIndex={0} className="m-1 btn">Channel</div>
+                    <ul className="shadow menu dropdown-content bg-base-100 rounded-box w-44">
+                        {/*{Object.keys(props.data.channels).map((value, index) => console.log('a'))}*/}
+                        <li>
+                            <a>Item 1</a>
+                        </li>
+                        <li>
+                            <a>Item 2</a>
+                        </li>
+                        <li>
+                            <a>Item 3</a>
+                        </li>
+                    </ul>
+                </div>
+
             </ul>
         </header>
     );

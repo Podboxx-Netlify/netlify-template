@@ -22,8 +22,8 @@ function MyApp({Component, pageProps, websiteData}) {
 
 MyApp.getInitialProps = async (Component, ctx) => {
     // const res = await fetch(`http://localhost:4000/api/${process.env.station_id}/website`)
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}${process.env.station_id}/website`)
-    const websiteData = await res.json()
+    const websiteRes = await fetch(`${process.env.NEXT_PUBLIC_API_URL}${process.env.station_id}/website`)
+    const websiteData = await websiteRes.json()
     let pageProps = {};
     if (Component.getInitialProps) {
         pageProps = await Component.getInitialProps(ctx);
