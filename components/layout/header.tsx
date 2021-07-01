@@ -16,7 +16,7 @@ export default function Header({...props}) {
     }
 
     return (
-        <header className="dark:bg-heroo mb-12 sticky z-10 top-0">
+        <header className="mb-12 sticky z-10 top-0">
             <div className="navbar mb-2 shadow-lg bg-neutral text-neutral-content ">
                 <div className="px-2 mx-2 navbar-start">
                     <span className="text-lg font-bold select-none"><Link
@@ -132,7 +132,7 @@ export default function Header({...props}) {
                                 <li key={index}>
                                     <a className={(typeof window !== 'undefined' && localStorage.channel == props.data.channels[index]['id']) ? "bg-base-200 btn-disabled" : ""}>
                                         <button
-                                            className={(typeof window !== 'undefined' && localStorage.channel) == props.data.channels[index]['id'] ? "focus:outline-none btn-disabled" : "focus:outline-none"}
+                                            className={(typeof window !== 'undefined' && localStorage.channel == props.data.channels[index]['id']) ? "focus:outline-none btn-disabled" : "focus:outline-none"}
                                             onClick={() => handleChannelChange(props.data.channels[index]['id'])}><span
                                             className="line-clamp-1">{props.data.channels[index]['title']}</span>
                                         </button>
@@ -142,8 +142,28 @@ export default function Header({...props}) {
                         </ul>
                     </div>
                     }
+                    <Link href="/user/login">
+                        <button className="btn btn-ghost rounded-btn whitespace-nowrap">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px"
+                                 fill="#FFFFFF" className="inline-block w-5 mr-2 stroke-current" strokeWidth="2">
+                                <path
+                                    d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                            </svg>
+                            Sign In
+                        </button>
+                    </Link>
+                    <button className="btn btn-ghost rounded-btn whitespace-nowrap">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px"
+                             fill="#FFFFFF" className="inline-block w-5 mr-2 stroke-current" strokeWidth="2">
+                            <path
+                                d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                        </svg>
+                        <Link href="/user/register">Register</Link>
+
+                    </button>
                     <DarkMode/>
                 </div>
+                {/*    <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>*/}
             </div>
 
             {/*<ul className="flex items-end text-right justify-end lg:container select-none mt-3 md:mt-0 ">*/}

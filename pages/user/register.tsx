@@ -22,37 +22,16 @@ const Register: React.FC = () => {
         console.log('handleSubmit')
         e.preventDefault();
         e.stopPropagation();
-        const userObject = {
+
+        Auth.emailSignUp({
             email: formData.email,
             password: formData.password,
             password_confirmation: formData.password_confirmation,
             first_name: formData.first_name,
-            last_name: formData.last_name
-        }
-
-        Auth.emailSignUp({
-            email: userObject.email,
-            password: userObject.password,
-            password_confirmation: userObject.password_confirmation,
-            first_name: userObject.first_name,
-            last_name: userObject.last_name,
+            last_name: formData.last_name,
+            confirm_success_url: 'http://localhost:5000/user/login'
         })
             .then(res => {console.log(res)} )
-        // e.preventDefault
-        // axios.post('http://localhost:4000/api/:station_id/subscribers/auth', {
-        //     // sign_up: {
-        //         first_name: formData.first_name,
-        //         last_name: formData.last_name,
-        //         password: formData.password,
-        //         password_confirmation: formData.password_confirmation
-        //     // }
-        // }, {withCredentials: true})
-        //     .then(res => {
-        //         console.log(res.data)
-        //         if (res.data.errors) {
-        //             setError(res.data)
-        //         }
-        //     })
     }
 
     return (

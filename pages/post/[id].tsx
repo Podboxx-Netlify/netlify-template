@@ -49,8 +49,7 @@ const Post: React.FC<{ data: Data }> = ({data}) => {
     return (
         <>
             <div
-                className="w-full md:rounded-2xl shadow-lg flex flex-col sm:flex-col select-none gap-4"
-                style={{backgroundColor: '#292d35'}}>
+                className="w-full md:rounded-2xl shadow-lg flex flex-col sm:flex-col select-none gap-4 lg:border dark:bg-cards-dark">
                 <button
                     className="text-left p-5 w-28 font-bold text-gray-300 text-lg hover:text-red-500 focus:outline-none"
                     onClick={() => {
@@ -67,7 +66,7 @@ const Post: React.FC<{ data: Data }> = ({data}) => {
                 </article>
                 <br/>
                 {data.title && router.query.id &&
-                <iframe className='sm:m-4' height='300'
+                <iframe className='' height='300'
                         src={"https://player.podboxx.com/" + playerId}
                         allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
                         allowFullScreen/>
