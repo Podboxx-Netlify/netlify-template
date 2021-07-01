@@ -1,5 +1,4 @@
 import React, {useState} from "react";
-import axios from "axios";
 import Auth from "j-toker";
 
 const Register: React.FC = () => {
