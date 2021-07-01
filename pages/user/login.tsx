@@ -28,7 +28,7 @@ const Login: React.FC = () => {
                                 <a href="#" className="label-text-alt">Forgot username?</a>
                         <div className="form-control justify-center mt-5">
                             <button
-                                className="btn btn-outline ">
+                                className="btn btn-outline">
                                 Sign In
                             </button>
                         </div>

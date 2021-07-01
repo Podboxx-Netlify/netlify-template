@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import {GetServerSideProps} from 'next'
 import PostCard from "../components/post-card";
 import ReactPaginate from 'react-paginate';
@@ -13,7 +13,7 @@ interface Data {
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
     // const res = await fetch(`http://localhost:4000/api/${process.env.station_id}/blog?page=${context.query.page}`)
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}${process.env.station_id}/blog?page=${context.query.page}`)
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}${process.env.station_id}/blog?channel=${context.query.channel_id || null}&page=${context.query.page}`)
     const data: Data = await res.json()
     return {
         props: {
@@ -25,11 +25,18 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 const Blog: React.FC<{ data: Data }> = ({data}) => {
     const router = useRouter()
     const currentPage = parseInt(router.query.page as string)
+    useEffect(() => {
+        localStorage.channel && localStorage.channel !== router.query.channel && router.replace({
+            pathname: '/',
+            query: {channel_id: localStorage.channel},
+        }, '/')
+    },[router.query.channel])
+
 
     const handlePageClick = (data) => {
         router.push(`/?page=${data.selected + 1}`)
     }
-
+    console.log(router.query.channel_id)
     return (
         <>
             {data.podcasts && Object.keys(data.podcasts).length > 0 ?

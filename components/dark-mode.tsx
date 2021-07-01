@@ -26,12 +26,12 @@ export default function DarkMode() {
     }
 
     return (
-        <div className="text-right mr-10 ">
+        <div className="text-right">
             {theme === 'dark' ?
-                <button onClick={() => handleThemeChange('light')} className='focus:outline-none'>
+                <button onClick={() => handleThemeChange('light')} className='focus:outline-none btn btn-square btn-ghost'>
                     <Image src={"/light_mode_icon.png"} alt="light mode" height={30} width={30}/>
                 </button>
-                : <button onClick={() => handleThemeChange('dark')} className='focus:outline-none'>
+                : <button onClick={() => handleThemeChange('dark')} className='focus:outline-none btn btn-square btn-ghost'>
                     <Image src={"/dark_mode_icon.png"} alt="dark mode" height={30} width={30}/>
                 </button>
             }
