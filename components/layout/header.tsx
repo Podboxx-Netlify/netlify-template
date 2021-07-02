@@ -42,7 +42,7 @@ export default function Header({...props}) {
                         <ul
                             className="flex items-center text-center justify-center lg:container px-5 my-auto text-md md:px-6 flex-wrap select-none">
                             <li>
-                                {props.data.fb_url !== null &&
+                                {props.data.my_podboxx?.fb_url !== null &&
                                 <>
                                     <a className='select-none first:hidden last:hidden'> | </a>
                                     <a
