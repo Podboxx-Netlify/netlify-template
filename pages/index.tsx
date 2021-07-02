@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import {GetServerSideProps} from 'next'
 import PostCard from "../components/post-card";
 import ReactPaginate from 'react-paginate';
@@ -12,8 +12,8 @@ interface Data {
 }
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-    // const res = await fetch(`http://localhost:4000/api/${process.env.station_id}/blog?page=${context.query.page}&items_per_page=10`)
-    const res = await fetch(`https://api.podboxx.com/api/${process.env.station_id}/blog?page=${context.query.page}`)
+    // const res = await fetch(`http://localhost:4000/api/${process.env.station_id}/blog?page=${context.query.page}`)
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}${process.env.station_id}/blog?channel=${context.query.channel_id || null}&page=${context.query.page}`)
     const data: Data = await res.json()
     return {
         props: {
@@ -25,35 +25,41 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 const Blog: React.FC<{ data: Data }> = ({data}) => {
     const router = useRouter()
     const currentPage = parseInt(router.query.page as string)
+    useEffect(() => {
+        localStorage.channel && localStorage.channel !== router.query.channel && router.replace({
+            pathname: '/',
+            query: {channel_id: localStorage.channel},
+        }, '/')
+    },[router.query.channel])
+
 
     const handlePageClick = (data) => {
         router.push(`/?page=${data.selected + 1}`)
     }
-
+    console.log(router.query.channel_id)
     return (
         <>
             {data.podcasts && Object.keys(data.podcasts).length > 0 ?
-                <div className="grid grid-cols-1 gap-5 xl:grid-cols-2 justify-items-center justify-center">
-                {Object.keys(data.podcasts).map((value, index) =>
-                    <div key={index} className='w-full'>
-                        <PostCard data={{
-                            id: data.podcasts[index]['id'],
-                            title: data.podcasts[index]['title'],
-                            description: data.podcasts[index]['description'],
-                            blog_content: data.podcasts[index]['blogContent'],
-                            img_url: data.podcasts[index]['image_url'] || '/header_card.png',
-                            // img_url: 'https://podboxx-production.s3.amazonaws.com/jbjo25oynjl4egwpljo4u857g720',
-                            // img_url: '/header_card.png',
-                            publication_date: data.podcasts[index]['publication_date']
-                        }}/>
-                    </div>
-                )}
-            </div>:<h1 className='text-main-dark dark:text-white text-5xl text-center justify-self-center select-none'>No episodes to display</h1>}
-
-            {data.pages > 1 &&
+                <div className="grid grid-cols-1 gap-5 lg:grid-cols-2 justify-items-center justify-center">
+                    {Object.keys(data.podcasts).map((value, index) =>
+                        <div key={index} className='w-full'>
+                            <PostCard data={{
+                                id: data.podcasts[index]['id'],
+                                title: data.podcasts[index]['title'],
+                                description: data.podcasts[index]['description'],
+                                blog_content: data.podcasts[index]['blogContent'],
+                                img_url: data.podcasts[index]['image_url'] || '/header_card.png',
+                                publication_date: data.podcasts[index]['publication_date']
+                            }}/>
+                        </div>
+                    )}
+                </div> :
+                <h1 className='text-main-dark dark:text-white text-5xl text-center justify-self-center select-none'>No
+                    episodes to display</h1>}
+            {data.pages > 0 &&
             <div className="py-2">
                 <ReactPaginate
-                    pageCount={data.pages}
+                    pageCount={data.pages + 1}
                     marginPagesDisplayed={1}
                     pageRangeDisplayed={2}
                     onPageChange={handlePageClick}
