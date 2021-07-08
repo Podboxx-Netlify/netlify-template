@@ -67,7 +67,7 @@ const Post: React.FC<{ data: Data }> = ({data}) => {
                 </article>
                 <br/>
                 {data.title && router.query.id &&
-                <iframe className='' height='300'
+                <iframe className='' height='330'
                         src={"https://player.podboxx.com/" + playerId}
                         allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
                         allowFullScreen/>
