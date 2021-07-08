@@ -107,3 +107,52 @@ a {
   position: relative !important;
   height: unset !important;
 }
+
+.player {
+  position: relative;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  background-color: #212527;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.bar {
+  user-select: none;
+  display: flex;
+  align-items: center;
+}
+
+.bar__time {
+  color: white;
+  font-size: 16px;
+}
+.bar__progress {
+  flex: 1;
+  position: relative;
+  border-radius: 5px;
+  margin: 0 0 0 15px;
+  height: 10px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.bar__progress__knob {
+  position: absolute;
+  height: 16px;
+  width: 16px;
+  border: 1.5px solid white;
+  border-radius: 50%;
+  background-color: #c12228;
+}
+
+.controls {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.bar {
+  width: 90%;
+}
