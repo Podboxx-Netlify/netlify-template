@@ -72,20 +72,6 @@ const Post: React.FC<{ data: Data }> = ({data}) => {
                         allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
                         allowFullScreen/>
                 }
-
-                {/*<div id="wrap" className="player mb-3 max-h-72 ">*/}
-                {/*    <div className="podcast" id="info">*/}
-                {/*        <div className={"w-56 float-left pb-1 pr-10"}>*/}
-                {/*            <img style={{borderRadius: '16px'}} src={data.image_url || '/header_card.png'} alt="logo"/>*/}
-                {/*        </div>*/}
-                {/*        <p className={"text-xl font-bold text-white text-lg"}>{data.title}</p>*/}
-                {/*        <p className=" font-normal text-white text-lg">{data.description}</p>*/}
-                {/*    </div>*/}
-                {/*    <div className="bar" style={{width: '97%'}}>*/}
-                {/*        <span className="bar__time ml-3"/>*/}
-                {/*    </div>*/}
-                {/*</div>*/}
-
             </div>
         </>
     )
