@@ -6,6 +6,7 @@ interface Data {
     title: string
     blog_content?: string
     description?: string
+    image_url?: string
 }
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
