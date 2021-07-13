@@ -50,7 +50,7 @@ const Post: React.FC<{ data: Data }> = ({data}) => {
     return (
         <>
             <div
-                className="w-full md:rounded-2xl shadow-lg flex flex-col sm:flex-col select-none gap-4 lg:border dark:bg-cards-dark">
+                className="w-full md:rounded-2xl flex flex-col sm:flex-col select-none gap-4 dark:bg-cards-dark">
                 <button
                     className="text-left p-5 w-28 font-bold text-gray-300 text-lg hover:text-red-500 focus:outline-none"
                     onClick={() => {
@@ -66,8 +66,10 @@ const Post: React.FC<{ data: Data }> = ({data}) => {
                     }
                 </article>
                 <br/>
+            </div>
+            <div className="w-max mt-5 " style={{width: '100%'}}>
                 {data.title && router.query.id &&
-                <iframe className='' height='330'
+                <iframe className='' width='100%' height='400px'
                         src={"https://player.podboxx.com/" + playerId}
                         allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
                         allowFullScreen/>
